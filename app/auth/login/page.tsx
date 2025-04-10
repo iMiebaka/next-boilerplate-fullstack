@@ -1,6 +1,13 @@
-import LoginFormComp from "@/components/auth/LoginForm";
-import Link from "next/link";
 import React from "react";
+import Link from "next/link";
+import LoginFormComp from "@/components/auth/LoginForm";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Login",
+  description: "Sign in to access your account and manage your preferences. Secure authentication for registered users.",
+};
+
 
 export default function LoginPage() {
   return (
