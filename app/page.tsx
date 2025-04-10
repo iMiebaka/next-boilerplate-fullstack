@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
@@ -32,11 +31,11 @@ export default function Home() {
                 <br />
                 Next Boilerplate
               </h1>
-              <p className="mx-auto max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
-                Empowering businesses with cutting-edge software solutions. From
-                AI-driven analytics to seamless cloud integrations, we're
-                shaping the future of technology.
-              </p>
+                <p className="mx-auto max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
+                Build scalable and secure applications with ease. From robust 
+                authentication to seamless database integration, we've got your 
+                development needs covered.
+                </p>
             </div>
             <div className="flex gap-4">
               <Link href="/auth/register" className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 h-11 rounded-md px-8">
@@ -65,10 +64,9 @@ export default function Home() {
               <h2 className="font-bold text-3xl leading-[1.1] sm:text-3xl md:text-5xl">
                 Cutting-Edge Solutions
               </h2>
-              <p className="mt-4 text-muted-foreground sm:text-lg">
-                Discover how Next Boilerplate can transform your business with our
-                innovative technologies.
-              </p>
+                <p className="mt-4 text-muted-foreground sm:text-lg">
+                Experience the perfect blend of modern features and robust performance. Next Boilerplate streamlines your development workflow.
+                </p>
             </div>
             <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-2">
               <div className="relative overflow-hidden rounded-lg border bg-background p-8">
@@ -98,8 +96,8 @@ export default function Home() {
                   <h3 className="font-bold">AI-Powered Analytics</h3>
                 </div>
                 <p className="mt-2 text-muted-foreground">
-                  Harness the power of machine learning to derive actionable
-                  insights from your data.
+                  Leverage advanced machine learning algorithms to gain actionable 
+                  insights and make data-driven decisions.
                 </p>
               </div>
               <div className="relative overflow-hidden rounded-lg border bg-background p-8">
@@ -121,8 +119,7 @@ export default function Home() {
                   <h3 className="font-bold">Cloud-Native Architecture</h3>
                 </div>
                 <p className="mt-2 text-muted-foreground">
-                  Scalable, resilient, and efficient solutions built for the
-                  modern cloud ecosystem.
+                  Build resilient and efficient applications optimized for cloud deployment with zero configuration.
                 </p>
               </div>
               <div className="relative overflow-hidden rounded-lg border bg-background p-8">
@@ -196,54 +193,12 @@ export default function Home() {
                   Pioneering software solutions for the digital age.
                 </p>
               </div>
-              <div className="grid flex-1 grid-cols-2 gap-12 sm:grid-cols-3">
-                <div className="space-y-4">
-                  <h3 className="text-sm font-medium">Solutions</h3>
-                  <ul className="space-y-3 text-sm">
-                    <li>
-                      <a
-                        href="/ai-analytics"
-                        className="text-muted-foreground transition-colors hover:text-primary"
-                      >
-                        AI Analytics
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="/cloud-services"
-                        className="text-muted-foreground transition-colors hover:text-primary"
-                      >
-                        Cloud Services
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <div className="space-y-4">
-                  <h3 className="text-sm font-medium">Company</h3>
-                  <ul className="space-y-3 text-sm">
-                    <li>
-                      <a
-                        href="/about"
-                        className="text-muted-foreground transition-colors hover:text-primary"
-                      >
-                        About Us
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="/careers"
-                        className="text-muted-foreground transition-colors hover:text-primary"
-                      >
-                        Careers
-                      </a>
-                    </li>
-                  </ul>
-                </div>
+              
                 <div className="space-y-4">
                   <h3 className="text-sm font-medium">Connect</h3>
                   <div className="flex space-x-4">
                     <a
-                      href="https://github.com/amanesoft"
+                      href="https://github.com/imiebaka"
                       className="text-muted-foreground transition-colors hover:text-primary"
                     >
                       <svg
@@ -264,7 +219,7 @@ export default function Home() {
                       <span className="sr-only">GitHub</span>
                     </a>
                     <a
-                      href="https://twitter.com/amanesoft"
+                      href="https://twitter.com/_imiebaka"
                       className="text-muted-foreground transition-colors hover:text-primary"
                     >
                       <svg
@@ -284,7 +239,7 @@ export default function Home() {
                       <span className="sr-only">Twitter</span>
                     </a>
                     <a
-                      href="https://linkedin.com/company/amanesoft"
+                      href="https://linkedin.com/in/miebakaiwarri"
                       className="text-muted-foreground transition-colors hover:text-primary"
                     >
                       <svg
@@ -307,11 +262,10 @@ export default function Home() {
                     </a>
                   </div>
                 </div>
-              </div>
             </div>
             <div className="container mx-auto border-t py-6">
               <p className="text-center text-sm text-muted-foreground">
-                © 2025 Next Boilerplate, Inc. All rights reserved.
+                &copy; {new Date().getFullYear()} Next Boilerplate, Inc. All rights reserved.
               </p>
             </div>
           </footer>
