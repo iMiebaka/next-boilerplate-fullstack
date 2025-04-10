@@ -1,7 +1,7 @@
-import { NextApiRequest } from "next";
 import { Server as ServerIO } from "socket.io";
 import { Server as NetServer } from "http";
-import { NextApiResponseServerIO } from "@/src/types/next";
+import { ITCustomeRequest, NextApiResponseServerIO } from "@/src/types/next";
+import { withAuth, withOptionalAuth } from "@/src/utils/middlewares/auth";
 
 export const config = {
   api: {
@@ -9,7 +9,8 @@ export const config = {
   },
 };
 
-export default async (req: NextApiRequest, res: NextApiResponseServerIO) => {
+async function handler(req: ITCustomeRequest, res: NextApiResponseServerIO): Promise<any> {
+ 
   if (!res.socket.server.io) {
     console.log("New Socket.io server...");
     // adapt Next's net Server to http Server
@@ -17,25 +18,27 @@ export default async (req: NextApiRequest, res: NextApiResponseServerIO) => {
     const io = new ServerIO(httpServer, {
       path: "/api/socketio",
     });
-
+    
     // Add socket event listeners
     io.on("connection", (socket) => {
       console.log(`Client connected: ${socket.id}`);
-
+      
       socket.on("message", (data) => {
         console.log("Message received:", data);
         // Broadcast message to all clients
         io.emit("message", data);
       });
-
+      
       socket.on("disconnect", () => {
         console.log(`Client disconnected: ${socket.id}`);
       });
     });
-
+    
     // append SocketIO server to Next.js socket server response
     res.socket.server.io = io;
   }
-
+  
   res.end();
 };
+
+export default withAuth(handler)
