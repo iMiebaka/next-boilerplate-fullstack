@@ -1,4 +1,4 @@
-import { PrismaClient } from "../../generated/prisma/client";
+import { Prisma, PrismaClient } from "../../generated/prisma/client";
 import bcrypt from "bcrypt";
 
 const prisma = new PrismaClient();
@@ -10,7 +10,7 @@ export default class UserRepository {
     return await this.model.findFirst({ where: { email } });
   }
 
-  async createUser(payload: any) {
+  async createUser(payload: Prisma.UserCreateInput) {
     const isExist = await this.getUser(payload.email);
     if (isExist) {
       throw { details: "User Email already exist" };
@@ -18,6 +18,6 @@ export default class UserRepository {
     const salt = await bcrypt.genSalt();
     payload.password = await bcrypt.hash(payload.password, salt);
 
-    await this.model.create({ data: { ...payload} });
+    await this.model.create({ data: { ...payload, profile: {} } });
   }
 }
