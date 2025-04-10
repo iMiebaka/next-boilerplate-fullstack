@@ -23,11 +23,11 @@ A modern fullstack boilerplate built with **Next.js 15**, **TypeScript**, and a 
 .
 ├── components/         # Reusable UI components
 ├── hooks/              # Custom React hooks
-├── pages/              # Next.js routes
+├── app/              # Next.js routes
 ├── public/             # Static assets
-├── redux/              # Redux slices and store
+├── store/              # Redux slices and store
 ├── styles/             # Global styles
-├── utils/              # Utility functions
+├── lib/              # Utility functions
 ├── types/              # TypeScript types and interfaces
 └── ...
 ```
