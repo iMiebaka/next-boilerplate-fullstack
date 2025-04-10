@@ -1,20 +1,23 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "../styles/globals.css";
+import { Roboto, Roboto_Mono } from "next/font/google";
+import ReduxProvider from "@/providers/ReduxProvider";
+import ReactQuery from "@/providers/ReactQuery";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const roboto = Roboto({
   subsets: ["latin"],
+  variable: "--font-roboto",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const robotoMono = Roboto_Mono({
   subsets: ["latin"],
+  variable: "--font-roboto-mono",
 });
 
 export const metadata: Metadata = {
   title: "Next MERN Template",
-  description: "A template for Next.js with MongoDB, Express, React, and Node.js",
+  description:
+    "A template for Next.js with MongoDB, Express, React, and Node.js",
 };
 
 export default function RootLayout({
@@ -24,10 +27,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`${roboto.variable} ${robotoMono.variable} antialiased`}>
+        <ReactQuery>
+          <ReduxProvider>
+            {children}
+          </ReduxProvider>
+        </ReactQuery>
       </body>
     </html>
   );
