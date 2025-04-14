@@ -1,0 +1,51 @@
+
+services:
+
+  nextjs:
+    container_name: next_boilerplate_app
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.next
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/mydbnext_template?schema=public
+      - REDIS_URL=redis://redis:6379
+    depends_on:
+      - redis
+      - postgres
+    restart: always
+  
+  
+  redis:
+    container_name: next_boilerplate_redis
+    image: redis:alpine
+    # ports:
+    #   - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: always
+
+
+  postgres:
+    container_name: next_boilerplate_postgres
+    image: postgres:15.12
+    # ports:
+    #   - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=mydbnext_template
+    restart: always
+
+
+volumes:
+  redis_data:
+  mongodb_data:
+  postgres_data:
