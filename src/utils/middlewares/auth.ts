@@ -1,4 +1,6 @@
-import { NextRequest } from "next/server";
+import AuthRepository from "@/src/repository/auth";
+
+const authRepository = new AuthRepository();
 
 export function withAuth(handler: Handler): Handler | undefined {
   return async (req, res) => {
@@ -9,7 +11,7 @@ export function withAuth(handler: Handler): Handler | undefined {
         if (bearer !== "Bearer" || !authToken) {
           throw new Error("Unauthorized");
         } else {
-          req.userCredential = authToken;
+          req.userCredential = authRepository.verifyToken(authToken);
         }
       } else {
         throw new Error("Unauthorized");
@@ -30,11 +32,10 @@ export function withOptionalAuth(handler: Handler): Handler {
     if (token) {
       const [bearer, authToken] = token?.split(" ");
       if (bearer !== "Bearer" || !authToken) {
-        req.userCredential = authToken;
+        req.userCredential = authRepository.verifyToken(authToken);
       }
     }
     // If authenticated, call the original handler
     return handler(req, res);
   };
 }
-

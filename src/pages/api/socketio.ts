@@ -2,6 +2,7 @@ import { Server as ServerIO } from "socket.io";
 import { Server as NetServer } from "http";
 import { ITCustomeRequest, NextApiResponseServerIO } from "@/src/types/next";
 import { withAuth, withOptionalAuth } from "@/src/utils/middlewares/auth";
+import { NextRequest } from "next/server";
 
 export const config = {
   api: {
