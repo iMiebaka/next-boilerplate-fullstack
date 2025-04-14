@@ -1,3 +1,4 @@
+name: next boilerplate
 
 services:
 
@@ -24,8 +25,6 @@ services:
   redis:
     container_name: next_boilerplate_redis
     image: redis:alpine
-    # ports:
-    #   - "6379:6379"
     volumes:
       - redis_data:/data
     restart: always
@@ -34,8 +33,6 @@ services:
   postgres:
     container_name: next_boilerplate_postgres
     image: postgres:15.12
-    # ports:
-    #   - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     environment:

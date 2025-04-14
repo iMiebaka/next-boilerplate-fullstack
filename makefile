@@ -11,7 +11,7 @@ up:
 
 # Stop and remove the containers
 down:
-	docker-compose down
+	docker compose down
 
 # View container logs
 logs:
